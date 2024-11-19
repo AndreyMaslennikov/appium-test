@@ -10,6 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: UseJavaVersion@1
+  inputs:
+    versionSpec: '8'
+    jdkArchitecture: 'x64'
+
 - script: mvn -version && java -version
   displayName: 'Maven and Java versions'
 
