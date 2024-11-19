@@ -16,6 +16,12 @@ steps:
 - script: java -version && mvn -version && mvn -DskipTests -P prepare-for-upload package
   displayName: 'Build tests and prepare them to run on App Center'
 
+- script: npm install -g appcenter-cli
+  displayName: 'Install App Center CLI'
+
+- script: appcenter --version
+  displayName: 'Verify App Center CLI Installation'
+
 # App Center test v1
 # Test app packages with Visual Studio App Center.
 - task: AppCenterTest@1
