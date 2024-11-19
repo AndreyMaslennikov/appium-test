@@ -10,6 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: mvn -version && java -version
+  displayName: 'Maven and Java versions'
+
 - task: Maven@3
   displayName: 'Build tests and prepare them to run on App Center'
   inputs:
