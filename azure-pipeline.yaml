@@ -13,7 +13,7 @@ steps:
 - script: mvn -version && java -version
   displayName: 'Maven and Java versions'
 
-- script: mvn -X -DskipTests -P prepare-for-upload package
+- script: java -version && mvn -version && mvn -X -DskipTests -P prepare-for-upload package
   displayName: 'Build tests and prepare them to run on App Center'
 
 # App Center test v1
