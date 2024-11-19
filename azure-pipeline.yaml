@@ -13,12 +13,8 @@ steps:
 - script: mvn -version && java -version
   displayName: 'Maven and Java versions'
 
-- task: Maven@3
+- script: mvn -DskipTests -P prepare-for-upload package
   displayName: 'Build tests and prepare them to run on App Center'
-  inputs:
-    mavenPomFile: 'pom.xml'
-    options: '-DskipTests -P prepare-for-upload'
-    goals: 'clean package'
 
 # App Center test v1
 # Test app packages with Visual Studio App Center.
