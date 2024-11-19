@@ -84,6 +84,7 @@
               <plugin>
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-resources-plugin</artifactId>
+                  <version>3.2.0</version>
                   <executions>
                       <execution>
                           <id>copy-testclasses</id>
@@ -106,80 +107,6 @@
               </plugin>
           </plugins>
       </build>
-    </profile>
-    <profile>
-        <id>prepare-for-upload-failed</id>
-        <activation>
-            <activeByDefault>false</activeByDefault>
-        </activation>
-        <build>
-            <plugins>
-                <!-- Copy dependencies -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>copy-dependencies</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>copy-dependencies</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>${project.build.directory}/libs</outputDirectory>
-                                <includeScope>test</includeScope>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- Copy pom.xml to the target directory -->
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-resources-plugin</artifactId>
-                  <version>3.2.0</version>
-                  <executions>
-                      <execution>
-                          <id>copy-pom</id>
-                          <phase>package</phase>
-                          <goals>
-                              <goal>copy-resources</goal>
-                          </goals>
-                          <configuration>
-                              <resources>
-                                  <resource>
-                                      <directory>${project.basedir}</directory>
-                                      <includes>
-                                          <include>pom.xml</include>
-                                      </includes>
-                                  </resource>
-                              </resources>
-                              <outputDirectory>${project.build.directory}</outputDirectory>
-                          </configuration>
-                      </execution>
-                  </executions>
-                </plugin>
-
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-dependency-plugin</artifactId>
-                  <version>3.5.0</version>
-                  <executions>
-                      <execution>
-                          <id>copy-dependencies</id>
-                          <phase>package</phase>
-                          <goals>
-                              <goal>copy-dependencies</goal>
-                          </goals>
-                          <configuration>
-                              <outputDirectory>${project.build.directory}/dependency-jars</outputDirectory>
-                              <includeScope>test</includeScope>
-                          </configuration>
-                      </execution>
-                  </executions>
-                </plugin>
-            </plugins>
-        </build>
     </profile>
   </profiles>
 </project>
