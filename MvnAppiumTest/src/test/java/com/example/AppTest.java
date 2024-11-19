@@ -88,14 +88,14 @@ public class AppTest
 
     @Test
     public void testAddition() {
+        driver.label("App is running");
         assert(true);
         System.out.println("JUnit version is: " + Version.id());
     }
 
     @After
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.label("Stopping App");
+        driver.quit();
     }
 }
