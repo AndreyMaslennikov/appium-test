@@ -31,7 +31,7 @@ steps:
   # Prepare Tests
     # prepareTests: true # boolean. Alias: enablePrepare. Prepare tests. Default: true.
     frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Alias: framework. Required when enablePrepare = true. Test framework. Default: appium.
-    appiumBuildDirectory: "$(System.DefaultWorkingDirectory)/target" # string. Alias: appiumBuildDir. Required when enablePrepare = true && framework = appium. Build directory. 
+    appiumBuildDirectory: "$(System.DefaultWorkingDirectory)/target/upload" # string. Alias: appiumBuildDir. Required when enablePrepare = true && framework = appium. Build directory. 
     #prepareOptions: # string. Alias: prepareOpts. Optional. Use when enablePrepare = true. Additional options. 
   # Run Tests
     #runTests: true # boolean. Alias: enableRun. Run tests. Default: true.
