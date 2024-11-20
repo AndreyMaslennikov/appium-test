@@ -16,11 +16,11 @@ steps:
 - script: java -version && mvn -version && mvn -DskipTests -P prepare-for-upload package
   displayName: 'Build tests and prepare them to run on App Center'
 
-- script: npm install -g appcenter-cli
-  displayName: 'Install App Center CLI'
+# - script: npm install -g appcenter-cli
+#   displayName: 'Install App Center CLI'
 
-- script: appcenter --version
-  displayName: 'Verify App Center CLI Installation'
+# - script: appcenter --version
+#   displayName: 'Verify App Center CLI Installation'
 
 # App Center test v1
 # Test app packages with Visual Studio App Center.
@@ -48,5 +48,5 @@ steps:
     #runOptions: # string. Alias: runOpts. Optional. Use when enableRun = true. Additional options for run. 
     #skipWaitingForResults: false # boolean. Alias: async. Optional. Use when enableRun = true. Do not wait for test result. Default: false.
   # Advanced
-    #cliFile: # string. Alias: cliLocationOverride. App Center CLI location. 
+    cliFile: "$(System.DefaultWorkingDirectory)/appcenter"# string. Alias: cliLocationOverride. App Center CLI location. 
     #showDebugOutput: false # boolean. Alias: debug. Enable debug output. Default: false.
